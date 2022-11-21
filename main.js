@@ -3,7 +3,6 @@ const allform = document.querySelector('#note-form')
 const inputNote = document.querySelector('#note-input')
 const btnSub = document.querySelector('#submit')
 const noteList = document.querySelector('.notes')
-const deleteAllNotes = document.querySelector('#erase-list')
 const btnErase = document.querySelector('.erase')
 
 
@@ -31,7 +30,7 @@ allform.addEventListener('submit', e => {
 
 const listBuilder = (text) => {
     const listOfNote = document.createElement('li')
-    listOfNote.innerHTML = `${text} <button class='save' onclick="deleteNote(this)">X</button>`
+    listOfNote.innerHTML = `${text} <button class='delete' onclick="deleteNote(this)">X</button>`
     noteList.appendChild(listOfNote)
 }
 
@@ -45,14 +44,14 @@ const deleteNote = (btn) => {
     noteErase.remove()
 }
 
-//--6-: Realizar con un boton, borrar toda la lista creada.
+//--6-: Realizar con un boton, borrar toda la lista creada (ESTOY HACIENDOLA)
 
 btnErase.onclick = (e) => {
     e.preventDefault()
     //let index = noteStorage.indexOf(noteStorage)
-    noteStorage.splice(0)
-    localStorage.setItem('notes', JSON.stringify(noteStorage))
-    noteStorage.remove()
+    localStorage.splice(0)
+    //localStorage.setItem('notes', JSON.stringify(noteStorage))
+    localStorage.remove()
 }
 
 
